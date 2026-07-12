@@ -1,0 +1,9 @@
+# Executables
+a.out
+*.exe
+
+# Object files
+*.o
+
+# Editor files
+.vscode/
