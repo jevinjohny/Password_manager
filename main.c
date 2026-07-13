@@ -11,6 +11,7 @@
 #include "save.h"
 #include "strength.h"
 #include "search.h"
+#include "delete.h"
 
 int database_count = 0;
 
@@ -20,7 +21,7 @@ data database[MAXDATA];
 
 int main()
 {
-    srand(time(NULL));
+    srand(time(NULL)); // time will return the total no of secs
 
     banner();
 
@@ -93,7 +94,7 @@ int main()
         }
         case 8:
         {
-            // delete();
+            delete_password(database);
 
             break;
         }
