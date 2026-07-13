@@ -23,7 +23,7 @@ int main()
 {
     srand(time(NULL)); // time will return the total no of secs
 
-    banner();
+    banner(); // prints text art
 
     int option;
 
