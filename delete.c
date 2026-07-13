@@ -117,5 +117,5 @@ void delete_password(data *entry)
 
     printf("Password Deleted Successfully\n");
 
-    printf("\033[0m"); // Reset color
+    printf("\033[0m"); // Reset colour
 }
