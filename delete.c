@@ -10,6 +10,13 @@ extern int database_count;
 
 void delete_password(data *entry)
 {
+    if (database_count == 0)
+    {
+        printf("\nDatabase is empty\n");
+
+        return;
+    }
+
     char str[50];
 
     printf("Enter the website\n");
@@ -29,15 +36,14 @@ void delete_password(data *entry)
 
     int j = 0;
 
-    int ind = 0;
-
     int arr[database_count];
 
     for (int i = 0; i < database_count; i++)
     {
         if (strstr(entry[i].website, str) != NULL)
         {
-            arr[ind++] = j + 1;
+            arr[j] = i;
+
             if (flag)
             {
                 printf("\n");
@@ -68,6 +74,7 @@ void delete_password(data *entry)
     if (flag)
     {
         printf("No data found...\n");
+
         return;
     }
 
@@ -77,25 +84,15 @@ void delete_password(data *entry)
 
     printf("Enter the data to be deleted\n");
 
-    int found = 0;
-
     while (1)
     {
         scanf(" %d", &option);
 
         __fpurge(stdin);
 
-        for (int i = 0; i < ind; i++)
-        {
-            if (arr[i] == option)
-            {
-                found = 1;
+        option--;
 
-                break;
-            }
-        }
-
-        if (found)
+        if (option >= 0 && option < j)
         {
             break;
         }
@@ -105,7 +102,7 @@ void delete_password(data *entry)
         }
     }
 
-    for (int i = option - 1; i < database_count - 1; i++)
+    for (int i = arr[option]; i < database_count - 1; i++)
     {
         ptr = entry[i];
 
